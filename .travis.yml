@@ -1,0 +1,17 @@
+language: python
+
+python: '3.8'
+
+addons:
+  chrome: stable
+
+before_script:
+  - wget https://chromedriver.storage.googleapis.com/85.0.4183.87/chromedriver_linux64.zip
+  - sudo unzip chromedriver_linux64.zip -d /usr/local/bin/chromedriver
+  - export PATH="$PATH:/usr/local/bin/chromedriver"
+
+services: postgresql
+
+env: DJANGO_SETTINGS_MODULE=purbeurre.settings
+
+script: python manage.py test

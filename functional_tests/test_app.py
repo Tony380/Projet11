@@ -1,6 +1,7 @@
 """ This file contains a Selenium test """
 from selenium import webdriver
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from selenium.webdriver.chrome.options import Options
 import time
 
 
@@ -8,7 +9,10 @@ class TestApp(StaticLiveServerTestCase):
     """Test correct register form submission"""
 
     def setUp(self):
-        self.driver = webdriver.Chrome()
+        options = Options()
+        """for travis ci"""
+        options.add_argument('--headless')
+        self.driver = webdriver.Chrome(chrome_options=options)
 
     def test_register_form_submission_with_button(self):
         self.driver.get(str(self.live_server_url) + '/users/register')
