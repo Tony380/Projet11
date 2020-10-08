@@ -2,17 +2,31 @@
 {% load static %}
 {% block title %}Mon profil{% endblock %}
 {% block content %}
-<section id="kotyk" class="h-75">
-    <div class="container">
-        <div class="row justify-content-center text-light mt-5">
-            <h1 class="bg-secondary p-2 rounded">{{ user.username }}</h1>
+<section id="kotyk">
+    <div class="container profile w-75 p-5 text-white">
+        <h2 class="row justify-content-center">Vos informations de profil</h2>
+        <div class="row mt-5">
+            <div class="col-4 h6">
+                <p class="mb-5">Votre nom d'utilisateur : </p>
+                <p class="mb-5">Votre adresse mail : </p>
+                <p class="mb-5">Votre prénom : </p>
+                <p>Votre nom : </p>
+            </div>
+            <div class="col-4 h6">
+                <p class="mb-5">{{ user.username }}</p>
+                <p class="mb-5">{{ user.email }}</p>
+                <p class="mb-5">{{ user.first_name }}</p>
+                <p>{{ user.last_name }}</p>
+            </div>
+            <div class="col-4 h5 border border-primary"></div>
         </div>
-    </div>
-</section>
-<section class="h-25">
-    <div class="container">
-        <div class="row justify-content-center mt-5">
-            <h2>{{ user.email }}</h2>
+        <div class="row mt-5 text-center">
+            <div class="col-8 h5">
+                <button type="button" class="btn btn-primary">Modifier vos informations</button>
+            </div>
+            <div class="col-4 h5">
+                <button type="button" class="btn btn-primary">Modifier votre photo de profil</button>
+            </div>
         </div>
     </div>
 </section>
