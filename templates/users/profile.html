@@ -3,30 +3,57 @@
 {% block title %}Mon profil{% endblock %}
 {% block content %}
 <section id="kotyk">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="row justify-content-center">
+                <div class="position-absolute text-center alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
     <div class="container profile w-75 p-5 text-white">
-        <h2 class="row justify-content-center">Vos informations de profil</h2>
+        <h2 class="row justify-content-center">Informations de profil</h2>
         <div class="row mt-5">
-            <div class="col-4 h6">
-                <p class="mb-5">Votre nom d'utilisateur : </p>
-                <p class="mb-5">Votre adresse mail : </p>
-                <p class="mb-5">Votre prénom : </p>
+            <div class="col-6 h6">
+                <p class="mb-1">Votre adresse mail : </p>
+            </div>
+            <div class="col-6 h6">
+                <p class="mb-1">{{ user.email }}</p>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-6 h6">
+                <p class="mb-1">Votre prénom : </p>
+            </div>
+            <div class="col-6 h6">
+                <p class="mb-1">{{ user.first_name }}</p>
+            </div>
+        </div>
+        <div class="row mt-1">
+            <div class="col-6 h6">
                 <p>Votre nom : </p>
             </div>
-            <div class="col-4 h6">
-                <p class="mb-5">{{ user.username }}</p>
-                <p class="mb-5">{{ user.email }}</p>
-                <p class="mb-5">{{ user.first_name }}</p>
+            <div class="col-6 h6">
                 <p>{{ user.last_name }}</p>
             </div>
-            <div class="col-4 h5 border border-primary"></div>
         </div>
-        <div class="row mt-5 text-center">
-            <div class="col-8 h5">
-                <button type="button" class="btn btn-primary">Modifier vos informations</button>
+        <div class="row mt-1">
+            <a href="{% url 'users:update' %}" class="btn btn-primary">Mettre à jour vos informations</a>
+        </div>
+        <div class="row mt-5">
+            <div class="col-6 h6">
+                <p>Votre nom d'utilisateur : </p>
             </div>
-            <div class="col-4 h5">
-                <button type="button" class="btn btn-primary">Modifier votre photo de profil</button>
+            <div class="col-6 h6">
+                <p>{{ user.username }}</p>
             </div>
+        </div>
+        <div class="row">
+            <a href="{% url 'users:username' %}" class="btn btn-primary">Modifier votre nom d'utilisateur</a>
         </div>
     </div>
 </section>

@@ -9,3 +9,17 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+
+
+class UpdateProfile(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = ('email', 'first_name', 'last_name')
+
+
+class ModifyUsername(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = ('username',)
