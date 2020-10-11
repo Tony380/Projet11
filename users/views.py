@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, PasswordChangeView
 from django.contrib.auth.models import User
 
 
@@ -40,6 +40,11 @@ def profile(request):
 class LoginFormView(SuccessMessageMixin, LoginView):
     """ Add a welcome message when user logs in """
     success_message = "Bienvenu! Vous êtes maintenant connecté"
+
+
+class PasswordView(SuccessMessageMixin, PasswordChangeView):
+    """ Add a success message when user modifies his password """
+    success_message = "Votre mot de passe a été modifié avec succès !"
 
 
 @login_required
