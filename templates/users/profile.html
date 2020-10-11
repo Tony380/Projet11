@@ -16,19 +16,13 @@
             </div>
         {% endfor %}
     {% endif %}
-    <div class="container">
+    <div class="container profile p-5">
         <div class="row justify-content-center">
             <h2 class="bg-secondary p-2 rounded text-light mb-5">Mon profil</h2>
         </div>
-        <div class="content-section">
-            <div class="media">
-                <img src="{{ user.profile.image.url }}" class="rounded-circle account-img">
-                <div class="media-body">
-                    <h2 class="account-heading">{{ user.username }}</h2>
-                    <p class="text-secondary">{{ user.email }}</p>
-                    <p class="text-secondary">{{ user.first_name }}</p>
-                    <p class="text-secondary">{{ user.last_name }}</p>
-                </div>
+        <div class="content-section text-light">
+            <div class="text-center">
+                <img src="{{ user.profile.image.url }}" class="rounded-circle mb-5">
             </div>
         </div>
 
