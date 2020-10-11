@@ -18,26 +18,26 @@
     <div class="container profile w-75 p-5 text-white">
         <h2 class="row justify-content-center">Informations de profil</h2>
         <div class="row mt-5">
-            <div class="col-6 h6">
+            <div class="col-6 h5">
                 <p class="mb-1">Votre adresse mail : </p>
             </div>
-            <div class="col-6 h6">
+            <div class="col-6 h5">
                 <p class="mb-1">{{ user.email }}</p>
             </div>
         </div>
         <div class="row mt-1">
-            <div class="col-6 h6">
+            <div class="col-6 h5">
                 <p class="mb-1">Votre prénom : </p>
             </div>
-            <div class="col-6 h6">
+            <div class="col-6 h5">
                 <p class="mb-1">{{ user.first_name }}</p>
             </div>
         </div>
         <div class="row mt-1">
-            <div class="col-6 h6">
+            <div class="col-6 h5">
                 <p>Votre nom : </p>
             </div>
-            <div class="col-6 h6">
+            <div class="col-6 h5">
                 <p>{{ user.last_name }}</p>
             </div>
         </div>
@@ -45,10 +45,10 @@
             <a href="{% url 'users:update' %}" class="btn btn-primary">Mettre à jour vos informations</a>
         </div>
         <div class="row mt-5">
-            <div class="col-6 h6">
+            <div class="col-6 h5">
                 <p>Votre nom d'utilisateur : </p>
             </div>
-            <div class="col-6 h6">
+            <div class="col-6 h5">
                 <p>{{ user.username }}</p>
             </div>
         </div>
