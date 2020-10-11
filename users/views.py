@@ -97,3 +97,12 @@ def modify_username(request):
     else:
         form = ModifyUsername()
         return render(request, 'username.html', {'form': form})
+
+
+@login_required
+def del_user(request):
+    user = request.user
+    logout(request)
+    user.delete()
+    messages.success(request, "Votre profil a été supprimé avec succès !")
+    return redirect('index')

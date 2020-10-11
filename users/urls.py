@@ -13,6 +13,7 @@ urlpatterns = [
         template_name='password.html',
         success_url='profile'),
          name='password_change'),
+    path('del_user', views.del_user, name='del_user'),
 
 ]
 
