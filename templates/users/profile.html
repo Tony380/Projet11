@@ -25,14 +25,19 @@
                 <img src="{{ user.profile.image.url }}" class="rounded-circle mb-5">
             </div>
         </div>
-
         <div class="row justify-content-center">
             <form method="post" enctype="multipart/form-data" class="bg-light p-3 rounded">
                 {% csrf_token %}
                 {{ u_form|crispy }}
                 {{ p_form|crispy }}
-                <button type="submit" class="btn btn-primary">Valider</button>
+                <button type="submit" class="btn btn-primary">Modifier vos informations</button>
             </form>
+        </div>
+        <div class="row justify-content-center">
+            <a href="{% url 'users:password_change' %}" class="btn btn-primary mt-5" role="button">Modifier votre mot de passe</a>
+        </div>
+        <div class="row justify-content-center">
+            <a href="{% url 'users:del_user' %}" class="btn btn-primary mt-5" role="button">Supprimer votre compte</a>
         </div>
     </div>
 </section>
