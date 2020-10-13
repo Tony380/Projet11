@@ -32,7 +32,7 @@ def register(request):
 
 @login_required
 def profile(request):
-    """ User's profile page """
+    """ User's profile page with data changes possibilty"""
     if request.method == 'POST':
         u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = ProfileUpdateForm(request.POST, request.FILES,
@@ -74,6 +74,7 @@ def logout_view(request):
 
 @login_required
 def del_user(request):
+    """ User account delete function """
     user = request.user
     logout(request)
     user.delete()

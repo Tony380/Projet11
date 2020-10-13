@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from .forms import RegisterForm
 from .views import redirect
+from .models import Profile
 
 
 class TestUser(TestCase):
@@ -52,6 +53,18 @@ class TestUser(TestCase):
         response = self.client.get(reverse('users:profile'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profile.html')
+
+    def test_profile_string(self):
+        User.objects.create(username="nametestnametest")
+        pro = Profile.objects.first()
+        self.assertEqual(str(pro), 'nametestnametest')
+
+    def test_del_user(self):
+        user = User.objects.create(username="name")
+        self.client.force_login(user)
+        response = self.client.get(reverse('users:del_user'))
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateUsed(redirect('index.html'))
 
 
 class TestUserForms(TestCase):

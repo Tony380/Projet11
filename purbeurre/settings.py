@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_extensions',
     'crispy_forms',
-
+    'django_cleanup',
 ]
 
 MIDDLEWARE = [

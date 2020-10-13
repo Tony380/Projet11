@@ -33,3 +33,14 @@ class TestApp(StaticLiveServerTestCase):
         self.assertEquals(self.live_server_url + '/', redirection_url,
                           'Bienvenu! Votre compte a été créé avec succès! '
                           'Vous êtes maintenant connecté')
+        self.driver.get(str(self.live_server_url) + '/users/profile')
+        first_name_input = self.driver.find_element_by_id('id_first_name')
+        last_name_input = self.driver.find_element_by_id('id_last_name')
+        submission_button = self.driver.find_element_by_class_name(
+            'btn-primary')
+        first_name_input.send_keys('fname')
+        last_name_input.send_keys('lname')
+        submission_button.click()
+        time.sleep(2)
+        self.assertEquals(self.driver.current_url, self.driver.current_url,
+                          'Informations mis à jour avec succès !')

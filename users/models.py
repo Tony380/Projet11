@@ -4,6 +4,7 @@ from PIL import Image
 
 
 class Profile(models.Model):
+    """ Add automatically default avatar to user profile """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='default.png', upload_to='profile_pics')
 
@@ -15,6 +16,7 @@ class Profile(models.Model):
 
         img = Image.open(self.image.path)
 
+        """ Redimension image size """
         if img.height > 300 or img.width > 300:
             output_size = (300, 300)
             img.thumbnail(output_size)
