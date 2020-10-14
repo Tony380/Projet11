@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_extensions',
     'crispy_forms',
+    'django_cleanup',
 ]
 
 MIDDLEWARE = [
@@ -150,6 +151,10 @@ else:
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, "static"),
     )
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 

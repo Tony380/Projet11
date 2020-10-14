@@ -57,6 +57,7 @@ class TestProduct(TestCase):
     def test_good_search_view(self):
         response = self.client.get(reverse('core:search'), {'query': 'name'})
         self.assertEquals(response.status_code, 200)
+        self.assertTrue(response, msg=None)
         self.assertTemplateUsed(response, 'core/search.html')
 
     def test_product_view(self):
