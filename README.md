@@ -7,7 +7,7 @@ en utilisant le framework Django.
 
 Ici, le but est de lui apporter des améliorations et des ajouts.
 
-####Améliorations apportées:
+###Améliorations apportées:
 
 -	Une photo de profil par défaut lorsqu’un utilisateur créé son compte
 -	La possibilité de changer cette photo par la suite
@@ -17,5 +17,5 @@ Ici, le but est de lui apporter des améliorations et des ajouts.
 
 Les tests relatifs à ces améliorations ont été ajoutés.
 
-#####Pour tester l'application :
-coverage run --source='.' manage.py test && coverage html && coverage report -m
+###Pour tester l'application :
+-   coverage run --source='.' manage.py test && coverage html && coverage report -m
