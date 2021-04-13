@@ -1,12 +1,12 @@
 language: python
 
-python: '3.8'
+python: '3.9'
 
 addons:
   chrome: stable
 
 before_script:
-  - wget https://chromedriver.storage.googleapis.com/90.0.4430.24/chromedriver_linux64.zip
+  - wget https://chromedriver.storage.googleapis.com/89.0.4389.114/chromedriver_linux64.zip
   - sudo unzip chromedriver_linux64.zip -d /usr/local/bin/chromedriver
   - export PATH="$PATH:/usr/local/bin/chromedriver"
 
