@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django_extensions',
     'crispy_forms',
     'django_cleanup',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -145,4 +146,13 @@ LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/'
 
-django_heroku.settings(locals())
+django_heroku.settings(locals(), test_runner=False)
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
+
+
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_S3_REGION_NAME = 'eu-west-3'
