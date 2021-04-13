@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-import dj_database_url
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -85,8 +85,6 @@ DATABASES = {
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.environ.get('ENV') == 'PRODUCTION':
     DEBUG = False
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
 else:
     DEBUG = True
 
@@ -151,3 +149,5 @@ LOGIN_URL = '/users/login'
 LOGIN_REDIRECT_URL = '/'
 
 LOGOUT_REDIRECT_URL = '/'
+
+django_heroku.settings(locals())
