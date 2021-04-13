@@ -20,8 +20,7 @@ class TestApp(StaticLiveServerTestCase):
         email_input = self.driver.find_element_by_id('id_email')
         password1_input = self.driver.find_element_by_id('id_password1')
         password2_input = self.driver.find_element_by_id('id_password2')
-        submission_button = self.driver.find_element_by_class_name(
-            'btn-primary')
+        submission_button = self.driver.find_element_by_class_name('btn-primary')
 
         username_input.send_keys('john')
         email_input.send_keys('john@gmail.com')
