@@ -3,6 +3,7 @@ from selenium import webdriver
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.chrome.options import Options
 import time
+import os
 
 
 class TestApp(StaticLiveServerTestCase):
@@ -11,7 +12,9 @@ class TestApp(StaticLiveServerTestCase):
     def setUp(self):
         options = Options()
         """for travis ci"""
-        options.add_argument('--headless')
+        if os.environ.get('ENV') == 'PRODUCTION':
+            options.add_argument('--headless')
+
         self.driver = webdriver.Chrome(chrome_options=options)
 
     def test_register_form_submission_with_button(self):
