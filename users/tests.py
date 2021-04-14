@@ -15,6 +15,12 @@ class TestUser(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'register.html')
 
+    def test_good_register_view(self):
+        form = {'username': 'test1','email': 'test@gmail.com',
+        'password1': 'test123test','password2': 'test123test'}
+        response = self.client.post(reverse('users:register'),data=form)
+        self.assertEqual(response.status_code, 302)
+
     def test_bad_register_view(self):
         """Test when information introduced is wrong"""
         response = self.client.post(reverse('users:register'))
@@ -53,6 +59,13 @@ class TestUser(TestCase):
         response = self.client.get(reverse('users:profile'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profile.html')
+
+    def test_profile(self):
+        user = User.objects.create(username="name")
+        self.client.force_login(user)
+        u_form = {'username': 'test9', 'email': 'test9@gmail.com', 'image': user.profile.image}
+        response = self.client.post(reverse('users:profile'), data=u_form)
+        self.assertEqual(response.status_code, 302)
 
     def test_profile_string(self):
         User.objects.create(username="nametestnametest")
